@@ -4,6 +4,12 @@
 
 ## How to use
 
+Create venv and install requirements<br/>
+`python -m venv .venv`<br/>
+`source .venv/bin/activate` linux<br/>
+`.venv\Scripts\Activate` windows<br/>
+`pip install -r requirements.txt`
+
 ### Generate
 
 `--config` path to config file<br/>
