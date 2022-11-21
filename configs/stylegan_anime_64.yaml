@@ -1,0 +1,10 @@
+batch_sizes: [32, 32, 32, 32, 32, 24, 12, 6, 3]
+channels_per_layer: [512, 512, 512, 512, 256, 128, 64, 32, 16]
+resolution: 64
+z_dim: 512
+w_dim: 512
+n_epochs: 10
+learning_rate: 0.001
+n_workers: 6
+d_regularize_every: 16
+g_regularize_every: 8
