@@ -8,6 +8,7 @@ import numpy as np
 import io
 import yaml
 from stylegan import Generator
+import torch.nn.functional as F
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
@@ -26,6 +27,7 @@ def gen_imgs():
     with torch.no_grad():
         fake = model(noise, 1, 64, False, truncation=0.6, truncation_w=w_mean)
     
+    fake = F.tanh(fake)
     mean=0.5
     std=0.5
     
@@ -39,12 +41,6 @@ app = FastAPI()
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
-
-def create_img():
-    w, h = 512, 512
-    arr = np.zeros((h, w, 3), dtype=np.uint8)
-    arr[0:256, 0:256] = [255, 0, 0]
-    return arr
 
 @app.get("/", response_class=HTMLResponse)
 async def read_item(request: Request):
