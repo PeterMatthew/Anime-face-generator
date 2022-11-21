@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <title>Anime face generator</title>
+    <link rel="stylesheet" href="../static/styles.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .ui {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .gen {
+        height: 48px;
+        padding: 4px 16px;
+        background-color: #047857;
+        color: #fff;
+        border: 0;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 700;
+      }
+
+      .grid {
+        width: 384px;
+        height: 384px;
+        margin-top: 16px;
+      }
+    </style>
+    <script src="../static/alpine.min.js"></script>
+  </head>
+  <body>
+    <div id="container"></div>
+    <div class="container">
+      <div class="ui" x-data="{img: `http://127.0.0.1:8000/image/`, temp: 0}">
+        <button
+          class="gen"
+          @click="img = `http://127.0.0.1:8000/image/${temp++}`"
+        >
+          Gerar
+        </button>
+
+        <div class="grid">
+          <template x-for="i in 36" :key="i">
+            <img :src="img+i" />
+          </template>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

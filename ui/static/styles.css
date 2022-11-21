@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gen {
+  height: 48px;
+  padding: 4px;
+  background-color: #047857;
+  color: #fff;
+}
